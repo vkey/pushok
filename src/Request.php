@@ -243,5 +243,9 @@ class Request
         if ($notification->getPayload()->isContentAvailable()) {
             $this->headers[self::HEADER_APNS_PUSH_TYPE] = 'background';
         }
+
+        if($pushType = $notification->getPushType()){
+            $this->headers[self::HEADER_APNS_PUSH_TYPE] = $pushType;
+        }
     }
 }

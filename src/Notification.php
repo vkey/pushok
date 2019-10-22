@@ -20,6 +20,10 @@ class Notification
     const PRIORITY_HIGH = 10;
     const PRIORITY_LOW = 5;
 
+    const ALERT_PUSH = 'alert';
+    const BACKGROUND_PUSH = 'background';
+    const VOIP_PUSH = 'voip';
+
     /**
      * Notification payload.
      *
@@ -54,6 +58,13 @@ class Notification
      * @var int
      */
     private $priority;
+
+    /**
+     * Push Type.
+     *
+     * @var string
+     */
+    private $pushType;
 
     /**
      * Id for the coalescing of similar notifications.
@@ -173,6 +184,29 @@ class Notification
 
         return $this;
     }
+
+    /**
+     * Get push type.
+     *
+     * @return string|null
+     */
+    public function getPushType()
+    {
+        return $this->pushType;
+    }
+
+    /**
+     * Set push type.
+     * @param $pushType string
+     * @return Notification
+     */
+    public function setPushType($pushType): Notification
+    {
+        $this->pushType = $pushType;
+
+        return $this;
+    }
+
 
     /**
      * @return string|null
